@@ -50,11 +50,11 @@ const IndexPage = () => {
 	}
 
 	return (
-		<div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden">
-			<div className="z-10 flex flex-col items-center justify-center w-1/3 gap-6 bg-white rounded-md shadow-md h-1/5">
+		<div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden gradient">
+			<div className="z-10 flex flex-col items-center justify-center w-5/6 gap-6 bg-white rounded-md shadow-md lg:w-1/3 h-1/5">
 				<form
 					onSubmit={onSubmit}
-					className="flex items-center w-2/3 h-10 space-x-6"
+					className="flex items-center w-full h-10 px-6 space-x-6 lg:mx-0 lg:w-2/3"
 				>
 					<Input
 						placeholder="Paste URL"
@@ -66,7 +66,7 @@ const IndexPage = () => {
 					<Button type="submit">Shorten</Button>
 				</form>
 				{state.shortUrl && (
-					<div className="flex items-center w-2/3 h-10 gap-4">
+					<div className="flex items-center w-full h-10 gap-4 px-6 lg:mx-0 lg:w-2/3">
 						<Input
 							value={state.shortUrl}
 							ref={copyInputRef}
@@ -77,9 +77,6 @@ const IndexPage = () => {
 						</Button>
 					</div>
 				)}
-			</div>
-			<div className="absolute inset-0 z-0 w-screen h-screen overflow-hidden">
-				<img src="/mesh.png" className="object-contain" />
 			</div>
 			<div className="absolute bottom-0 flex w-full">
 				<div className="z-10 flex items-center justify-center py-4 mx-auto rounded-md">

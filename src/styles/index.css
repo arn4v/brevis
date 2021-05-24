@@ -5,4 +5,8 @@ body {
   position: relative;
 }
 
+.gradient {
+  background-image: url("/mesh.png");
+}
+
 @tailwind utilities;
