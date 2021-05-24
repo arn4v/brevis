@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import nextConnect from "next-connect"
-import { nanoid } from "nanoid"
 import redis from "../../../lib/redis"
 import { isValidHttpUrl } from "../../../lib/utils"
 import { BASE_URL } from "../../../lib/constants"
+import { nanoid } from "nanoid"
 
 export default nextConnect<NextApiRequest, NextApiResponse>().post(
 	async (req, res) => {
@@ -15,7 +15,7 @@ export default nextConnect<NextApiRequest, NextApiResponse>().post(
 				if (typeof existingId === "string") {
 					res.status(409).send(BASE_URL + "/" + existingId)
 				} else {
-					const id = nanoid()
+					const id = nanoid(8)
 					await redis.set(id, url)
 					await redis.set(url, id)
 					res.status(200).send(BASE_URL + "/" + id)

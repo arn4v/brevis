@@ -54,7 +54,7 @@ const IndexPage = () => {
 			<div className="z-10 flex flex-col items-center justify-center w-5/6 gap-6 bg-white rounded-md shadow-md lg:w-1/3 h-1/5">
 				<form
 					onSubmit={onSubmit}
-					className="flex items-center w-full h-10 px-6 space-x-6 lg:mx-0 lg:w-2/3"
+					className="flex items-center w-full h-10 px-6 space-x-6 lg:mx-0 lg:w-5/6"
 				>
 					<Input
 						placeholder="Paste URL"
@@ -66,7 +66,7 @@ const IndexPage = () => {
 					<Button type="submit">Shorten</Button>
 				</form>
 				{state.shortUrl && (
-					<div className="flex items-center w-full h-10 gap-4 px-6 lg:mx-0 lg:w-2/3">
+					<div className="flex items-center w-full h-10 gap-4 px-6 lg:mx-0 lg:w-5/6">
 						<Input
 							value={state.shortUrl}
 							ref={copyInputRef}
