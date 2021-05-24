@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+
+body {
+  position: relative;
+}
+
+@tailwind utilities;
