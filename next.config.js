@@ -4,12 +4,9 @@
 module.exports = {
   future: {
     webpack5: true,
-    strictPostcssConfiguration: true,
   },
-  reactStrictMode: true,
   experimental: {
     turboMode: true,
-    eslint: true,
   },
   webpack: (config, { dev, isServer }) => {
     config.resolve.fallback = { fs: false, module: false };
