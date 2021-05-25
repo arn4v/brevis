@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import nextConnect from "next-connect"
-import redis from "../../../lib/redis"
-import { isValidHttpUrl } from "../../../lib/utils"
-import { BASE_URL } from "../../../lib/constants"
 import { nanoid } from "nanoid"
+import { BASE_URL } from "~/lib/constants"
+import redis from "~/lib/redis"
+import { isValidHttpUrl } from "~/lib/utils"
 
 export default nextConnect<NextApiRequest, NextApiResponse>().post(
 	async (req, res) => {
