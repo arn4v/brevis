@@ -11,6 +11,7 @@ const IndexPage = () => {
 		copyText: "Copy",
 	})
 	const copyInputRef = React.useRef<HTMLInputElement>()
+	const [status, setStatus] = React.useState("idle")
 
 	const setCopyText = (text: string) => {
 		setState((prev) => ({ ...prev, copyText: text }))
@@ -34,6 +35,7 @@ const IndexPage = () => {
 	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		const url = BASE_URL + "/api/v1/links"
+		setStatus("loading")
 		fetch(url, {
 			method: "post",
 			headers: {
@@ -46,6 +48,7 @@ const IndexPage = () => {
 			})
 			.then((shortUrl) => {
 				setState((prev) => ({ ...prev, shortUrl: shortUrl }))
+				setStatus("success")
 			})
 	}
 
@@ -63,7 +66,9 @@ const IndexPage = () => {
 						onChange={onChange}
 						required
 					/>
-					<Button type="submit">Shorten</Button>
+					<Button type="submit" disabled={status === "loading"}>
+						{status === "loading" ? "Shortening..." : "Shorten"}
+					</Button>
 				</form>
 				{state.shortUrl && (
 					<div className="flex items-center w-full h-10 gap-4 px-6 lg:mx-0 lg:w-5/6">
@@ -87,7 +92,16 @@ const IndexPage = () => {
 						href="https://arnavgosain.com"
 						className="hover:text-blue-800"
 					>
-						Arnav Gosain
+					@arn4v
+					</a>.
+					&nbsp;
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://github.com/arn4v/brevis"
+						className="hover:text-blue-800"
+					>
+					View on GitHub.
 					</a>
 				</div>
 			</div>
